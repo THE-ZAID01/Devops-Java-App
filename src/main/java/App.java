@@ -3,7 +3,7 @@ public class App {
         return a + b;
     }
     public static void main(String[] args) {
-        System.out.println("Hello DevOps");
+        System.out.println("Hello DevOps - SEA EXP 8");
         System.out.println("2 + 3 = " + add(2, 3));
     }
 }

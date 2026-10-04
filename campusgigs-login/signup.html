@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusGigs - Sign Up</title>
+<style>
+  :root {
+    --primary: #7C3AED;
+    --primary-dark: #6D28D9;
+    --bg: #F5F4FA;
+    --text: #1A1A2E;
+    --muted: #8A8A9A;
+    --success: #16A34A;
+    --input-border: #E5E4EE;
+    --radius: 20px;
+  }
+ 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 16px;
+  }
+ 
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg);
+  }
+ 
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+ 
+  .logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+ 
+  .logo svg { width: 22px; height: 22px; }
+ 
+  .brand-text { display: flex; flex-direction: column; }
+  .brand-name { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+  .brand-by { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.5px; }
+ 
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+ 
+  .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+ 
+  form { display: flex; flex-direction: column; gap: 20px; }
+ 
+  .field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+ 
+  .field input {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1.5px solid var(--input-border);
+    background: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+ 
+  .field input:focus { border-color: var(--primary); }
+ 
+  .password-wrap { position: relative; }
+ 
+  .password-wrap button.toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 4px;
+  }
+ 
+  .hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--success);
+    font-weight: 600;
+    margin-top: 8px;
+  }
+ 
+  .hint svg { flex-shrink: 0; }
+ 
+  .error {
+    display: none;
+    font-size: 13px;
+    color: #DC6803;
+    font-weight: 600;
+    margin-top: 8px;
+    align-items: center;
+    gap: 6px;
+  }
+ 
+  .error.show { display: flex; }
+ 
+  .cta {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    border-radius: 16px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.15s ease, transform 0.08s ease;
+  }
+ 
+  .cta:hover { background: var(--primary-dark); }
+  .cta:active { transform: scale(0.98); }
+ 
+  .switch {
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 20px;
+  }
+ 
+  .switch a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+ 
+  @media (max-width: 480px) {
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+ 
+<div class="card">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L14 8L20 10L14 12L12 18L10 12L4 10L10 8L12 2Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">CampusGigs</span>
+      <span class="brand-by">BY 4 ROCKETS</span>
+    </div>
+  </div>
+ 
+  <h1>Skills meet side hustle.</h1>
+  <p class="subtitle">Connect with peer-to-peer gigs on campus.</p>
+ 
+  <form id="signupForm" novalidate>
+    <div class="field">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Alex Rivera" required>
+    </div>
+ 
+    <div class="field">
+      <label for="email">Institute Email</label>
+      <input type="email" id="email" name="email" placeholder="alex.rivera@university.edu" required>
+      <div class="hint" id="emailHint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" fill="#16A34A"/>
+          <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Use your college email to verify you're a student
+      </div>
+      <div class="error" id="emailError">
+        Please use a valid institute email address
+      </div>
+    </div>
+ 
+    <div class="field">
+      <label for="password">Password</label>
+      <div class="password-wrap">
+        <input type="password" id="password" name="password" placeholder="••••••••" required minlength="8">
+        <button type="button" class="toggle" data-target="password" aria-label="Toggle password visibility">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+ 
+    <div class="field">
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="password-wrap">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required minlength="8">
+        <button type="button" class="toggle" data-target="confirmPassword" aria-label="Toggle password visibility">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="error" id="matchError">Passwords don't match</div>
+    </div>
+ 
+    <button type="submit" class="cta">Create Account</button>
+  </form>
+ 
+  <p class="switch">Already have an account? <a href="login.html">Log in</a></p>
+</div>
+ 
+<script>
+  // Toggle password visibility
+  document.querySelectorAll('.toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.target);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    });
+  });
+ 
+  // Basic client-side validation (replace with real API calls to your backend)
+  const form = document.getElementById('signupForm');
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const emailHint = document.getElementById('emailHint');
+  const passwordInput = document.getElementById('password');
+  const confirmInput = document.getElementById('confirmPassword');
+  const matchError = document.getElementById('matchError');
+ 
+  // Adjust to your approved institute domain(s)
+  const ALLOWED_DOMAINS = ['university.edu', 've.ac.in', 'ves.ac.in'];
+ 
+  function isInstituteEmail(email) {
+    const domain = email.split('@')[1];
+    return domain && ALLOWED_DOMAINS.some(d => domain.toLowerCase().endsWith(d));
+  }
+ 
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let valid = true;
+ 
+    if (!isInstituteEmail(emailInput.value)) {
+      emailError.classList.add('show');
+      emailHint.style.display = 'none';
+      valid = false;
+    } else {
+      emailError.classList.remove('show');
+      emailHint.style.display = 'flex';
+    }
+ 
+    if (passwordInput.value !== confirmInput.value) {
+      matchError.classList.add('show');
+      valid = false;
+    } else {
+      matchError.classList.remove('show');
+    }
+ 
+    if (!valid) return;
+ 
+    const payload = {
+      fullName: document.getElementById('fullName').value,
+      email: emailInput.value,
+      password: passwordInput.value
+    };
+ 
+    // Replace with your actual backend endpoint, e.g.:
+    // const res = await fetch('/api/auth/signup', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(payload)
+    // });
+ 
+    console.log('Submitting signup:', payload);
+    alert('Account created (demo) — connect this to your /api/auth/signup endpoint.');
+  });
+</script>
+ 
+</body>
+</html>
+ 
+
+
+
